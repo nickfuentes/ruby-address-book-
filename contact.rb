@@ -1,11 +1,13 @@
 require "./phone_number"
+require "./address"
 
 class Contact
   attr_writer :first_name, :middle_name, :last_name
-  attr_reader :phone_numbers
+  attr_reader :phone_numbers, :addresses
 
   def initialize
     @phone_numbers = []
+    @addresses = []
   end
 
   def add_phone_number(kind, number)
@@ -13,6 +15,17 @@ class Contact
     phone_number.kind = kind
     phone_number.number = number
     phone_numbers.push(phone_number)
+  end
+
+  def add_address(kind, street_1, street_2, city, state, postal_code)
+    address = Address.new
+    address.kind = kind
+    address.street_1 = street_1
+    address.street_2 = street_2
+    address.city = city
+    address.state = state
+    address.postal_code = postal_code
+    addresses.push(address)
   end
 
   def first_name
@@ -74,6 +87,10 @@ class Contact
     phone_numbers.each { |phone_number| puts phone_number }
   end
 
+  def print_addresses
+    puts "Addresses"
+    addresses.each { |address| puts address.to_s("short") }
+  end
 end
 
 nick = Contact.new
@@ -82,5 +99,8 @@ nick.middle_name = "Martin"
 nick.last_name = "Fuentes"
 nick.add_phone_number("Home",  "123-456-789")
 nick.add_phone_number("Work",  "987-654-321")
+nick.add_address("Home", "123 Main St.", "", "Portland", "OR", "12345")
+
 puts nick.to_s("full_name")
 nick.print_phone_numbers
+nick.print_addresses
