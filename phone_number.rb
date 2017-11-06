@@ -1,4 +1,4 @@
-class PhoneNUmber
+class PhoneNumber
   attr_accessor :kind, :number
 
   def to_s
