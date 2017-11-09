@@ -1,0 +1,29 @@
+---
+- !ruby/object:Contact
+  phone_numbers: []
+  addresses: []
+  first_name: Nickolas
+  middle_name: Fuentes
+  last_name: Fuentes
+- !ruby/object:Contact
+  phone_numbers: []
+  addresses: []
+  first_name: Jason
+  middle_name: ''
+  last_name: Bourne
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Home
+    number: 231-231-4973
+  addresses:
+  - !ruby/object:Address
+    kind: Work
+    street_1: 1234 Yo Boi Lane
+    street_2: ''
+    city: Houston
+    state: Texas
+    postal_code: '78666'
+  first_name: Priscilla
+  middle_name: ''
+  last_name: Montes
